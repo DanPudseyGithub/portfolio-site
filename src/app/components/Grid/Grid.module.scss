@@ -1,0 +1,247 @@
+@import "@variables/variables.scss";
+
+// -----------------------------
+// Variables
+// -----------------------------
+$component-max-width: 1084px;
+
+// -----------------------------
+// Row Wrapper
+// -----------------------------
+.RowWrapper {
+  display: grid;
+  @include toRem(gap, 20);
+}
+
+// -----------------------------
+// Row
+// -----------------------------
+.Row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: 100%;
+  max-width: $component-max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gap-sm {
+  @include toRem(gap, 5);
+}
+.gap-md {
+  @include toRem(gap, 10);
+}
+.gap-lg {
+  @include toRem(gap, 20);
+}
+
+.Inherit {
+  height: inherit;
+}
+
+// -----------------------------
+// Column
+// -----------------------------
+.Column {
+  min-width: 0;
+  display: flex; /* enable flex for alignment control */
+  flex-direction: column;
+}
+
+/* mobile first (already have) */
+.align-start {
+  align-items: flex-start;
+}
+.align-center {
+  align-items: center;
+}
+.align-end {
+  align-items: flex-end;
+}
+.align-stretch {
+  align-items: stretch;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+
+/* SM */
+.align-sm-start {
+  align-items: flex-start;
+}
+.align-sm-center {
+  align-items: center;
+}
+.align-sm-end {
+  align-items: flex-end;
+}
+.align-sm-stretch {
+  align-items: stretch;
+}
+
+.justify-sm-start {
+  justify-content: flex-start;
+}
+.justify-sm-center {
+  justify-content: center;
+}
+.justify-sm-end {
+  justify-content: flex-end;
+}
+.justify-sm-between {
+  justify-content: space-between;
+}
+
+/* MD */
+@include media(">tablet") {
+  .align-md-start {
+    align-items: flex-start;
+  }
+  .align-md-center {
+    align-items: center;
+  }
+  .align-md-end {
+    align-items: flex-end;
+  }
+  .align-md-stretch {
+    align-items: stretch;
+  }
+
+  .justify-md-start {
+    justify-content: flex-start;
+  }
+  .justify-md-center {
+    justify-content: center;
+  }
+  .justify-md-end {
+    justify-content: flex-end;
+  }
+  .justify-md-between {
+    justify-content: space-between;
+  }
+}
+
+/* LG */
+@include media(">desktop") {
+  .align-lg-start {
+    align-items: flex-start;
+  }
+  .align-lg-center {
+    align-items: center;
+  }
+  .align-lg-end {
+    align-items: flex-end;
+  }
+  .align-lg-stretch {
+    align-items: stretch;
+  }
+
+  .justify-lg-start {
+    justify-content: flex-start;
+  }
+  .justify-lg-center {
+    justify-content: center;
+  }
+  .justify-lg-end {
+    justify-content: flex-end;
+  }
+  .justify-lg-between {
+    justify-content: space-between;
+  }
+}
+
+// -----------------------------
+// Spans
+// -----------------------------
+@for $i from 1 through 12 {
+  .span-sm-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+@media (min-width: 768px) {
+  @for $i from 1 through 12 {
+    .span-md-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  @for $i from 1 through 12 {
+    .span-lg-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+// -----------------------------
+// Start positions
+// -----------------------------
+@for $i from 1 through 12 {
+  @for $span from 1 through 12 {
+    .start-span-sm-#{$i}-#{$span} {
+      grid-column: #{$i} / span #{$span};
+    }
+  }
+}
+
+// Medium screens
+@media (min-width: 768px) {
+  @for $i from 1 through 12 {
+    @for $span from 1 through 12 {
+      .start-span-md-#{$i}-#{$span} {
+        grid-column: #{$i} / span #{$span};
+      }
+    }
+  }
+}
+
+// Large screens
+@media (min-width: 1025px) {
+  @for $i from 1 through 12 {
+    @for $span from 1 through 12 {
+      .start-span-lg-#{$i}-#{$span} {
+        grid-column: #{$i} / span #{$span};
+      }
+    }
+  }
+}
+
+// Order
+.order-sm-1 {
+  order: 1;
+}
+.order-sm-2 {
+  order: 2;
+}
+
+// Tablet breakpoint
+@include media(">tablet") {
+  .order-md-1 {
+    order: 1;
+  }
+  .order-md-2 {
+    order: 2;
+  }
+}
+
+// Desktop breakpoint
+@include media(">desktop") {
+  .order-lg-1 {
+    order: 1;
+  }
+  .order-lg-2 {
+    order: 2;
+  }
+}

@@ -1,0 +1,90 @@
+// Set the base rem unit here
+@mixin toRem($property, $value) {
+  #{$property}: ($value / 10) + rem;
+}
+
+@mixin horizontal-gradient($from, $to, $stop: 100%) {
+  background: linear-gradient(to right, $from 0%, $to $stop);
+}
+
+@mixin shiny {
+  -webkit-mask-position: 100%;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    mask-image: linear-gradient(-75deg, rgba(0, 0, 0, 0.6) 30%, #000 50%, rgba(0, 0, 0, 0.6) 70%);
+    mask-size: 200%;
+    animation: shiny 2s infinite;
+    transition: all 0.1s;
+    outline: none;
+  }
+}
+
+// Hyperlink mixins
+@mixin hyperlink-base($color: $hyperlink-dark) {
+  position: relative;
+  display: inline;
+  padding-bottom: 1px;
+  color: $color;
+  background-image: linear-gradient($color, $color),
+    linear-gradient(change-color($color, $alpha: 0.2), change-color($color, $alpha: 0.2)),
+    linear-gradient($color, $color);
+  background-size: 0 1px, 100% 1px, 0 1px;
+  background-position: 0px 100%, 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size $link-animation;
+}
+
+@mixin hyperlink-base-hover($color: $hyperlink-dark) {
+  color: $color;
+  background-size: 0 1px, 0 1px, 100% 1px;
+  background-position: 0px 100%, 100% 100%, 0 100%;
+}
+
+@mixin hyperlink-hover($color: $hyperlink-dark) {
+  &:hover,
+  &:focus {
+    @include hyperlink-base-hover($color);
+  }
+  &:active {
+    background-color: change-color($color, $alpha: 0.2);
+  }
+}
+
+// If you want to hover the text of a link, but not the link itself e.g. when you have an icon adjacent
+@mixin hyperlink-with-parent($parent, $color: $hyperlink-dark) {
+  @include hyperlink-base($color);
+
+  #{$parent}:hover &,
+  #{$parent}:focus & {
+    @include hyperlink-hover($color);
+    background-image: linear-gradient($color, $color),
+      linear-gradient(change-color($color, $alpha: 0), change-color($color, $alpha: 0)),
+      linear-gradient($color, $color);
+    background-size: 0 1px, 0 1px, 100% 1px;
+  }
+}
+
+// Default hyperlink mixin
+@mixin hyperlink($color: $hyperlink-dark, $base: true, $hover: true) {
+  @if $base {
+    @include hyperlink-base($color);
+  }
+
+  @if $hover {
+    @include hyperlink-hover($color);
+  }
+}
+
+// Circle (for profile images etc.)
+@mixin circle($size, $radius: 99999rem) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: $size;
+  width: $size;
+  height: $size;
+  border-radius: $radius;
+  overflow: hidden;
+}

@@ -1,0 +1,108 @@
+@import "@variables/variables.scss";
+
+.Header {
+  background-color: var(--brand-primary);
+  width: 100%;
+  @include toRem(padding-top, 10);
+  @include toRem(padding-right, 10);
+  @include toRem(padding-bottom, 20);
+  @include toRem(padding-left, 10);
+  margin: auto;
+
+  @include media(">tablet") {
+    padding-top: 0;
+    @include toRem(padding-bottom, 40);
+  }
+}
+
+.HeaderWrapper {
+  margin-bottom: 0;
+
+  @include media(">tablet") {
+    height: 150px;
+    @include toRem(margin-bottom, 50);
+  }
+}
+
+.LogoLink {
+  display: block;
+}
+
+.Heading {
+  @include text-style-page-heading;
+  @include toRem(margin-top, 30);
+  @include toRem(margin-bottom, 10);
+  color: $font-colour-light;
+  text-shadow: 0 0 0;
+  animation-name: neon-highlight;
+  animation-duration: 6s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  letter-spacing: 1px;
+  text-wrap-style: balance;
+
+  @include media(">tablet") {
+    @include toRem(margin-top, 20);
+    @include toRem(margin-bottom, 20);
+  }
+}
+
+.Subheading {
+  @include toRem(margin-top, 10);
+  @include toRem(margin-bottom, 20);
+  color: $font-colour-light;
+  @include text-style-regular;
+
+  @include media(">tablet") {
+    @include toRem(margin-top, 20);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.SubheadingLink {
+  display: block;
+  @include toRem(margin-bottom, 10);
+  font-weight: 700;
+  color: $acid-yellow;
+  text-decoration: underline;
+
+  @include media(">tablet") {
+    margin-bottom: 0;
+    @include hyperlink($acid-yellow);
+    @include shiny();
+    display: inline;
+    text-decoration: none;
+  }
+}
+
+.Blockquote {
+  @include toRem(margin-top, 60);
+  @include toRem(margin-bottom, 20);
+  @include toRem(padding-left, 20);
+  color: $font-colour-light;
+  @include text-style-regular;
+  border-left: 1px solid $color-white;
+}
+
+.Author {
+  display: block;
+  @include toRem(margin-top, 20);
+  @include toRem(margin-bottom, 20);
+  color: $font-colour-light;
+  @include text-style-regular;
+}
+
+.Separator {
+  display: none;
+
+  @include media(">tablet") {
+    display: inline-block;
+    @include toRem(margin-left, 10);
+    @include toRem(margin-right, 10);
+  }
+}

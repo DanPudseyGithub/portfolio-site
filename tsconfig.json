@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "types": ["gsap"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/app/*"],
+      "@variables*": ["./src/app/assets/styles/variables/*"],
+      "@pageData*": ["./src/app/page-data/*"],
+      "@templates*": ["./src/app/templates/*"],
+      "@furniture*": ["./src/app/furniture/*"],
+      "@components*": ["./src/app/components/*"],
+      "@fonts*": ["./src/app/assets/fonts/*"],
+      "@utils*": ["./src/app/assets/utils/*"],
+      "@styles*": ["./src/app/assets/styles/*"],
+      "@icons*": ["./src/app/assets/icons/*"],
+      "@logo*": ["./src/app/assets/logo/*"],
+      "@type*": ["./src/app/type/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,124 @@
+@import "@variables/variables";
+
+// -----------------------------
+// Variables
+// -----------------------------
+
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+
+// Sizes
+$card-width: 300px;
+$card-height: 260px;
+$avatar-size: 50px;
+$quote-icon-size: 48;
+
+// Border radius
+$radius-sm: 8px;
+
+// Colors
+$color-bg-card: #f3f5f7;
+$color-border: #e5e6e8;
+$color-text-primary: #111;
+$color-text-secondary: #333;
+$color-text-muted: #6c6c6c;
+$color-accent: $klein-blue;
+
+// -----------------------------
+// Mixins
+// -----------------------------
+
+// Font utility
+@mixin font-size($size, $line-height: 1.4) {
+  @include toRem(font-size, $size);
+  line-height: $line-height;
+}
+
+// -----------------------------
+// Styles
+// -----------------------------
+
+.TestimonialCarousel {
+  width: 100%;
+  overflow: hidden;
+  padding: $space-lg 0 $space-md 0;
+}
+
+.Header {
+  @include toRem(margin-bottom, 30);
+  text-align: center;
+}
+
+.Heading {
+  @include font-size(24);
+}
+
+.CarouselWrapper {
+  height: 536px;
+}
+
+.Card {
+  flex: 0 0 auto;
+  width: $card-width;
+  height: $card-height;
+  background: $color-bg-card;
+  border-radius: $radius-sm;
+  padding: $space-md;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid $color-border;
+}
+
+.QuoteIcon {
+  display: block;
+  line-height: 1;
+  height: 40px;
+  @include font-size($quote-icon-size, 1);
+  color: $color-accent;
+}
+
+.Rating {
+  @include font-size(22);
+  color: $color-text-primary;
+}
+
+.Quote {
+  @include font-size(14);
+  color: $color-text-primary;
+}
+
+.Footer {
+  display: flex;
+  gap: $space-md;
+  align-items: flex-end;
+}
+
+.ProfilePicture {
+  @include circle($avatar-size);
+  background-color: $color-accent;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.Author {
+  font-weight: bold;
+  margin-bottom: 0;
+  @include font-size(16);
+  color: $color-text-secondary;
+}
+
+.Role {
+  font-weight: bold;
+  margin-top: $space-xs;
+  margin-bottom: 0;
+  @include font-size(12);
+  color: $color-text-muted;
+}

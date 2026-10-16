@@ -1,0 +1,293 @@
+@import "@variables/variables";
+
+// -----------------------------
+// Variables & mixins
+// -----------------------------
+
+$border-radius: 4px;
+
+@mixin text-theme-color {
+  color: $font-colour-dark;
+
+  &--Light {
+    color: $font-colour-dark;
+  }
+
+  &--Dark {
+    color: $font-colour-light;
+  }
+}
+
+// -----------------------------
+// Panel
+// -----------------------------
+.Panel {
+  width: 100%;
+  background-color: $color-white;
+  @include toRem(padding-right, 10);
+  @include toRem(padding-left, 10);
+
+  &--Light {
+    background-color: $color-white;
+    @include toRem(padding-top, 20);
+    @include toRem(padding-bottom, 30);
+
+    @include media(">tablet") {
+      @include toRem(padding-top, 40);
+      @include toRem(padding-bottom, 80);
+    }
+  }
+
+  &--Dark {
+    @include toRem(padding-top, 20);
+    @include toRem(padding-bottom, 30);
+    background-color: var(--brand-primary);
+
+    @include media(">tablet") {
+      @include toRem(padding-top, 40);
+      @include toRem(padding-bottom, 80);
+    }
+  }
+
+  &--Gunmetal {
+    background-color: $gunmetal;
+  }
+
+  &--Sapphire {
+    background-color: $sapphire;
+  }
+
+  &--NoHeader {
+    padding-top: 0;
+
+    .PanelTileWrapper {
+      margin-top: 0;
+    }
+  }
+}
+
+// -----------------------------
+// Panel Text
+// -----------------------------
+.Heading {
+  @include text-theme-color;
+  @include text-style-heading-1;
+}
+
+.Subheading {
+  @include text-theme-color;
+  @include text-style-regular;
+  @include toRem(margin-bottom, 12);
+}
+
+.ProjectTitle {
+  @include toRem(margin-top, 12);
+  @include toRem(margin-bottom, 12);
+  @include text-theme-color;
+  @include text-style-regular;
+
+  a {
+    @include hyperlink($acid-yellow);
+  }
+}
+
+.Dates {
+  @include toRem(margin-bottom, 12);
+  @include text-theme-color;
+  @include text-style-regular;
+}
+
+.Description {
+  @include toRem(margin-top, 60);
+  @include toRem(margin-bottom, 60);
+  @include text-theme-color;
+  @include text-style-regular;
+
+  a {
+    @include hyperlink($acid-yellow);
+  }
+}
+
+.SiteLink {
+  @include text-theme-color;
+  @include text-style-regular;
+}
+
+// -----------------------------
+// Panel Skills
+// -----------------------------
+.AllSkillsWrapper {
+  @include toRem(margin-top, 30);
+}
+
+.SkillsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  @include toRem(gap, 8);
+  @include toRem(margin-bottom, 10);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.PanelSkills {
+  @include text-style-small;
+  padding: 4px 8px;
+  border-radius: $border-radius;
+
+  &--Design {
+    background-color: $neon-pink;
+    color: $font-colour-dark;
+  }
+
+  &--Development {
+    background-color: $klein-blue;
+    color: $font-colour-light;
+  }
+}
+
+// -----------------------------
+// Panel Tile
+// -----------------------------
+.PanelTileWrapper {
+  @include toRem(margin-top, 60);
+  @include toRem(margin-bottom, 30);
+}
+
+.PanelTile {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border: 1px solid white;
+  padding: 28px 36px;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  &--Image {
+    padding: 0;
+    border: none;
+
+    .PanelTileInner {
+      height: 100%;
+      background-color: $color-black;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $border-radius;
+    }
+  }
+
+  &--Video {
+    padding: 0;
+    border: none;
+
+    .PanelTileInner {
+      height: 100%;
+    }
+  }
+
+  &--Light {
+    background-color: $color-white;
+  }
+
+  &--Dark {
+    background-color: var(--brand-primary);
+  }
+
+  &--Media {
+    order: 1;
+
+    @include media(">tablet") {
+      order: 2;
+    }
+  }
+
+  &--Copy {
+    order: 2;
+
+    @include media(">tablet") {
+      order: 1;
+    }
+  }
+
+  ol,
+  ul {
+    @include toRem(padding-left, 30);
+  }
+}
+
+.PanelTileInner {
+  width: 100%;
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ProjectHeading {
+  @include text-theme-color;
+  @include text-style-heading-2;
+}
+
+.ProjectDescription {
+  @include toRem(margin-top, 20);
+  @include toRem(margin-bottom, 20);
+  @include text-theme-color;
+  @include text-style-regular;
+
+  &--Light {
+    a {
+      @include hyperlink($klein-blue);
+    }
+  }
+}
+
+.VideoWrapper {
+  height: 100%;
+  width: 100%;
+
+  video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+// -----------------------------
+// Panel Tile Link
+// -----------------------------
+.PanelTileLinkWrapper {
+  display: flex;
+  @include toRem(gap, 16);
+}
+
+.PanelTileLink {
+  display: inline-flex;
+  align-items: center;
+  @include toRem(gap, 10);
+  @include toRem(font-size, 16);
+  color: $klein-blue;
+
+  &__Text {
+    @include hyperlink-with-parent(".PanelTileLink", $klein-blue);
+  }
+
+  &__Icon {
+    @include circle(26px);
+    background-color: $klein-blue;
+
+    svg {
+      @include toRem(width, 12);
+      @include toRem(height, 12);
+
+      path {
+        fill: $color-white;
+      }
+    }
+  }
+}

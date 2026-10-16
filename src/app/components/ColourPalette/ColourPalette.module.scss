@@ -1,0 +1,131 @@
+@import "@variables/variables";
+
+$top-offset: -80px;
+
+.Wrapper {
+  display: grid;
+  background-color: $sapphire;
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' fill='none' viewBox='0 0 28 28'><path fill='%23fff' d='M8.084 1.806C8.084.808 7.275 0 6.277 0h-4.47C.807 0 0 .808 0 1.806v4.12h8.084v-4.12ZM8.084 6.828H0v6.269h8.084V6.828ZM8.084 14H0v6.268h8.084V14ZM15.915 17.807l5.076-5.076-5.717-5.717-5.077 5.076 2.86 2.858 2.858 2.86ZM25.15 8.572a1.81 1.81 0 0 0 0-2.557l-3.161-3.16c-.682-.683-1.874-.683-2.556 0L15.91 6.376l5.718 5.717 3.522-3.522ZM8.084 21.172H0v2.782c0 .135.009.266.018.397.005.04.014.081.018.126.014.086.023.177.04.262.01.05.023.1.037.145.018.077.036.153.059.23.013.05.031.1.05.15.026.072.049.144.08.216a8.154 8.154 0 0 0 .158.343l.082.15a3.522 3.522 0 0 0 .316.465c.05.063.104.126.158.19.054.058.104.116.158.175.005.005.01.01.014.01l.027.026c.081.077.162.154.248.226.059.05.122.095.185.14.032.023.064.05.095.072.077.055.158.104.24.154l.067.04c.077.046.158.086.24.127.031.014.058.027.09.04.077.037.154.064.23.095.041.014.082.032.118.046l.217.067.158.041c.063.014.126.032.194.04.072.014.144.023.217.032.05.005.099.014.149.018.126.014.252.018.379.018h.032c.126 0 .252-.004.379-.018.022 0 .045-.009.068-.009a4.048 4.048 0 0 0 3.567-4.01v-2.786h-.004ZM4.042 25.94a1.356 1.356 0 1 1 .002-2.712 1.356 1.356 0 0 1-.002 2.712ZM14.903 20.097V28h6.269v-8.084h-6.093l-.176.18ZM26.194 19.916h-4.12V28h4.12c.998 0 1.806-.808 1.806-1.806v-4.471c0-.998-.808-1.807-1.806-1.807ZM12.42 15.585l-2.86-2.859-.573.57v10.657c0 .294-.032.579-.081.859l5.22-5.226.443-.442.7-.7-2.85-2.859ZM7.686 27.296c-.013.018-.031.031-.045.045-.013.013-.022.027-.036.04-.004.01-.013.014-.018.023a.494.494 0 0 0-.045.05 5.55 5.55 0 0 1-.339.311l-.108.081c-.063.05-.127.104-.194.154H14v-7l-6.052 6.056c-.09.086-.171.163-.262.24Z'/></svg>")
+      4 4,
+    auto;
+}
+
+.Header {
+  position: relative;
+  z-index: 1;
+  @include toRem(padding-left, 10);
+  @include toRem(padding-right, 10);
+
+  @include media(">desktop") {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.Heading {
+  color: $font-colour-light;
+  @include text-style-heading-1;
+}
+
+.Description {
+  color: $font-colour-light;
+  @include text-style-regular;
+}
+
+.Palette {
+  position: relative;
+  display: flex;
+  overflow: auto hidden;
+  width: 100%;
+  top: $top-offset;
+  padding: 180px 8px 0;
+  height: 320px;
+  z-index: 0;
+
+  @include media(">tablet") {
+    overflow: hidden;
+    padding: 180px 8px 0;
+    height: 320px;
+  }
+
+  &:hover {
+    z-index: 1;
+  }
+}
+
+.Swatch {
+  @include text-style-regular;
+  position: relative;
+  flex: 1 0 160px;
+  height: 320px;
+  min-width: 160px;
+  gap: 20px;
+  margin-inline-start: -20%;
+  background-color: var(--bg, #ccc);
+  border-radius: 20px;
+  color: white;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition:
+    transform 0.3s ease,
+    --text-opacity 0.3s ease;
+  --text-opacity: 0;
+
+  &--DarkText {
+    color: $font-colour-dark;
+  }
+
+  &::before,
+  &::after {
+    @include text-style-regular;
+    transition: opacity 0.3s ease;
+    writing-mode: sideways-lr;
+    text-orientation: sideways-right;
+
+    @include media(">tablet") {
+      opacity: var(--text-opacity);
+      writing-mode: unset;
+      text-orientation: unset;
+    }
+  }
+
+  &::before {
+    content: attr(data-name);
+  }
+  &::after {
+    content: attr(data-code);
+  }
+
+  & + .swatch {
+    /* Already handled via negative margin for overlapping */
+  }
+
+  &:hover {
+    --text-opacity: 1;
+    transform: translateY(-50%) rotateZ(-1.5deg);
+  }
+
+  /* One swatch before hovered one */
+  &:has(+ &:hover) {
+    transform: translateY(-30%) rotateZ(-1deg);
+  }
+
+  /* Two swatches before hover, or the first after hover */
+  &:has(+ & + &:hover),
+  &:where(&:hover + &) {
+    transform: translateY(-10%) rotateZ(-0.5deg);
+  }
+}
+
+.Divider {
+  position: relative;
+  top: $top-offset;
+  height: 1px;
+  margin-top: 2px;
+  border: none;
+  outline: none;
+  background-color: #ffffff33;
+}

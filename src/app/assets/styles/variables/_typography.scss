@@ -1,0 +1,34 @@
+@mixin text-style-page-heading {
+  @include toRem(font-size, 24);
+  @include toRem(line-height, 32);
+
+  @include media(">tablet") {
+    @include toRem(font-size, 36);
+    @include toRem(line-height, 54);
+  }
+}
+
+@mixin text-style-small {
+  @include toRem(font-size, 12);
+  @include toRem(line-height, 19.2);
+}
+
+@mixin text-style-regular {
+  @include toRem(font-size, 16);
+  @include toRem(line-height, 25.6);
+}
+
+@mixin text-style-heading-1 {
+  @include toRem(font-size, 22);
+  @include toRem(line-height, 28);
+
+  @include media(">tablet") {
+    @include toRem(font-size, 30);
+    @include toRem(line-height, 48);
+  }
+}
+
+@mixin text-style-heading-2 {
+  @include toRem(font-size, 26);
+  @include toRem(line-height, 41.6);
+}

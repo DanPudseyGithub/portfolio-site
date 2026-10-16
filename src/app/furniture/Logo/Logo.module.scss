@@ -1,0 +1,29 @@
+@import "@variables/variables";
+
+// -----------------------------
+// Variables
+// -----------------------------
+$logo-width-desktop: 380px;
+$logo-height-desktop: 120px;
+
+// -----------------------------
+// Logo Styles
+// -----------------------------
+.Logo {
+  position: relative;
+  aspect-ratio: 19 / 6;
+  max-width: 380px;
+
+  @include media(">tablet") {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: $logo-width-desktop;
+    height: $logo-height-desktop;
+  }
+
+  > div {
+    height: 100%;
+    width: 100%;
+  }
+}

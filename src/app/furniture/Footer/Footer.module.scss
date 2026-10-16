@@ -1,0 +1,46 @@
+@import "@variables/variables.scss";
+
+.Footer {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  @include toRem(padding-right, 10);
+  @include toRem(padding-left, 10);
+  background-color: $color-footer-background;
+}
+
+.Heading {
+  @include text-style-heading-1;
+  color: $font-colour-light;
+}
+
+.Paragraph {
+  @include text-style-regular;
+  color: $font-colour-light;
+}
+
+.ParagraphLink {
+  display: inline-flex;
+  align-items: center;
+  @include toRem(gap, 10);
+  @include toRem(margin-top, 20);
+
+  &__Text {
+    @include hyperlink-with-parent(".ParagraphLink", $acid-yellow);
+  }
+
+  &__Icon {
+    @include circle(26px);
+    background-color: $acid-yellow;
+
+    svg {
+      @include toRem(width, 12);
+      @include toRem(height, 12);
+
+      path {
+        fill: $color-black;
+      }
+    }
+  }
+}
