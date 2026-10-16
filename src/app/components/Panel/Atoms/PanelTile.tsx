@@ -61,13 +61,14 @@ const PanelTile = ({
         )}
         {siteLinks && siteLinks.length > 0 && (
           <div className={styles.PanelTileLinkWrapper}>
-            {siteLinks.map(({ url, linkText, target, isDark }, index) => (
+            {siteLinks.map(({ url, linkText, target, isDark, wip }, index) => (
               <PanelTileLink
                 key={index}
                 url={url}
                 linkText={linkText}
                 target={target}
                 isDark={isDark}
+                wip={wip}
               />
             ))}
           </div>

@@ -290,4 +290,12 @@ $border-radius: 4px;
       }
     }
   }
+
+  &.Wip {
+    @include hyperlink-disabled($disabled-grey, ".PanelTileLink__Text");
+
+    .PanelTileLink__Icon {
+      background-color: $disabled-grey;
+    }
+  }
 }

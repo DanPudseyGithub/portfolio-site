@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Dan Pudsey",
   description:
-    "This is the portfolio site for Dan Pudsey, a London based front end developer and digital designer",
+    "This is the portfolio site for Dan Pudsey, a London-based front end developer and digital designer",
   icons: {
     icon: "/favicon.ico",
   },

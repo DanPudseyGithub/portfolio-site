@@ -9,6 +9,7 @@ import styles from "./Panel.module.scss";
 type SiteLink = {
   linkText: string;
   url: string;
+  wip?: boolean;
 };
 
 type ColourTheme = "Gunmetal" | "Sapphire" | "Dark" | "Light" | string;
@@ -122,14 +123,19 @@ const Panel = ({
               </PanelText>
             )}
 
-            {siteLinks?.map(({ url, linkText }, index) => (
+            {siteLinks?.map(({ url, linkText, wip }, index) => (
               <PanelText
                 key={index}
                 type="SiteLink"
                 theme={appearanceTheme}
                 fontClass={sourceCodePro.className}
               >
-                <a href={url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={url}
+                  className={styleNames(styles, [wip && "Wip"])}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {linkText}
                 </a>
               </PanelText>

@@ -3,4 +3,5 @@ export type LinkType = {
   url: string;
   target?: string;
   isDark?: boolean;
+  wip?: boolean;
 };

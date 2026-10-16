@@ -13,7 +13,7 @@
         },
         {
           "id": 2,
-          "quote": "Dan is a superb digital designer and developer. He has a fantastic ability to think creatively, define a digital vision for a product, talk to the business and manage their input, and run the development team to get it done!! ",
+          "quote": "Dan is a superb digital designer and developer. He has a fantastic ability to think creatively, define a digital vision for a product, talk to the business and manage their input, and run the development team to get it done!!",
           "imageUrl": "https://danpudsey.com/assets/img/v2/profile-pictures/Laurence-Taylor.jpeg",
           "author": "Laurence Taylor",
           "role": "COO, London Wildlife Trust",
@@ -21,7 +21,7 @@
         },
         {
           "id": 3,
-          "quote": "Highly knowledgable and technically capable across all areas of frontend development. Would highly recommend for any team and would love to work with him again in the future.",
+          "quote": "Highly knowledgeable and technically capable across all areas of frontend development. Would highly recommend for any team and would love to work with him again in the future.",
           "imageUrl": "https://danpudsey.com/assets/img/v2/profile-pictures/Jason-Emery.jpeg",
           "author": "Jason Emery",
           "role": "Front end architect, Frog Design",
@@ -53,7 +53,7 @@
         },
         {
           "id": 7,
-          "quote": "I wouldn't hesitate to recommend Dan. He designed and developed two Wordpress based sites for me, managing the process with ease and guiding me through the CMS element so that I could easily change the website myself.",
+          "quote": "I wouldn't hesitate to recommend Dan. He designed and developed two WordPress based sites for me, managing the process with ease and guiding me through the CMS element so that I could easily change the website myself.",
           "imageUrl": "https://danpudsey.com/assets/img/v2/profile-pictures/Agnes-Finlayson.jpeg",
           "author": "Agnes Finlayson",
           "role": "Marketing manager, WOMAD Festival",
@@ -64,7 +64,7 @@
           "quote": "Dan is highly adaptable, encouraging and supportive. He has a positive attitude and a desire to produce quality work.",
           "imageUrl": "https://danpudsey.com/assets/img/v2/profile-pictures/Angelo-Palmieri.jpeg",
           "author": "Angelo Palmieri",
-          "role": "Senor web engineer, ASOS",
+          "role": "Senior web engineer, ASOS",
           "cite": "https://www.linkedin.com/in/danpudsey/"
         },
         {
@@ -77,7 +77,7 @@
         },
         {
           "id": 10,
-          "quote": "He has a terrific attitude towards work and always gives 100%, very enthusiastic about development and is always looking to progress and stay on the bleeding edge the technology stack.",
+          "quote": "He has a terrific attitude towards work and always gives 100%, very enthusiastic about development and is always looking to progress and stay on the bleeding edge of the technology stack.",
           "imageUrl": "https://danpudsey.com/assets/img/v2/profile-pictures/Jason-Emery.jpeg",
           "author": "Jason Emery",
           "role": "Senior front-end developer, Rufus Leonard",
@@ -102,7 +102,7 @@
           "id": 13,
           "quote": "I really like the new website design. The UI is much better, and it has really enhanced the experience.",
           "author": "Manu Bali",
-          "role": "Trust Pilot",
+          "role": "Trustpilot",
           "cite": "https://www.trustpilot.com/reviews/64021947b8602302b21df464"
         },
         {
@@ -115,7 +115,7 @@
         },
         {
           "id": 15,
-          "quote": "Dan has improved a significant number of New Scientist's products, design, and UX and has also brought in great discipline and techniquies to improve development, and built buy in and investment from the business in what he recommends.",
+          "quote": "Dan has improved a significant number of New Scientist's products, design, and UX and has also brought in great discipline and techniques to improve development, and built buy in and investment from the business in what he recommends.",
           "imageUrl": "https://danpudsey.com/assets/img/v2/profile-pictures/Laurence-Taylor.jpeg",
           "author": "Laurence Taylor",
           "role": "Managing director, New Scientist",
@@ -133,7 +133,7 @@
     },
     "Footer": {
       "heading": "Credits.",
-      "subheading": "This site has been designed & built by Dan Pudsey. It'd be weird if it wasn't. I used Next.js, Typescript, GSAP, Lottie, Yarn, styled-components, SCSS, SVGs, GitHub & designed it in Figma."
+      "subheading": "This site has been designed & built by Dan Pudsey. It'd be weird if it wasn't. I used Next.js, TypeScript, GSAP, Lottie, Yarn, styled-components, SCSS, SVGs, GitHub & designed it in Figma."
     }
   }
 }

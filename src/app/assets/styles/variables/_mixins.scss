@@ -27,19 +27,32 @@
   display: inline;
   padding-bottom: 1px;
   color: $color;
-  background-image: linear-gradient($color, $color),
+  background-image:
+    linear-gradient($color, $color),
     linear-gradient(change-color($color, $alpha: 0.2), change-color($color, $alpha: 0.2)),
     linear-gradient($color, $color);
-  background-size: 0 1px, 100% 1px, 0 1px;
-  background-position: 0px 100%, 100% 100%, 0 100%;
+  background-size:
+    0 1px,
+    100% 1px,
+    0 1px;
+  background-position:
+    0px 100%,
+    100% 100%,
+    0 100%;
   background-repeat: no-repeat;
   transition: background-size $link-animation;
 }
 
 @mixin hyperlink-base-hover($color: $hyperlink-dark) {
   color: $color;
-  background-size: 0 1px, 0 1px, 100% 1px;
-  background-position: 0px 100%, 100% 100%, 0 100%;
+  background-size:
+    0 1px,
+    0 1px,
+    100% 1px;
+  background-position:
+    0px 100%,
+    100% 100%,
+    0 100%;
 }
 
 @mixin hyperlink-hover($color: $hyperlink-dark) {
@@ -59,12 +72,18 @@
   #{$parent}:hover &,
   #{$parent}:focus & {
     @include hyperlink-hover($color);
-    background-image: linear-gradient($color, $color),
+    background-image:
+      linear-gradient($color, $color),
       linear-gradient(change-color($color, $alpha: 0), change-color($color, $alpha: 0)),
       linear-gradient($color, $color);
-    background-size: 0 1px, 0 1px, 100% 1px;
+    background-size:
+      0 1px,
+      0 1px,
+      100% 1px;
   }
 }
+
+// Disabled link style
 
 // Default hyperlink mixin
 @mixin hyperlink($color: $hyperlink-dark, $base: true, $hover: true) {
@@ -74,6 +93,39 @@
 
   @if $hover {
     @include hyperlink-hover($color);
+  }
+}
+
+@mixin hyperlink-disabled-base($color: $disabled-grey) {
+  color: $color;
+  cursor: not-allowed;
+  background-color: transparent;
+  background-image: linear-gradient($color, $color);
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: none;
+}
+
+// Disabled hyperlink, overrides the hover and focus states of the mixins above
+// Pass $child when the text sits inside the link e.g. hyperlink-with-parent
+@mixin hyperlink-disabled($color: $disabled-grey, $child: null) {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: not-allowed;
+
+    @if $child {
+      #{$child},
+      #{$child}:hover,
+      #{$child}:focus,
+      #{$child}:active {
+        @include hyperlink-disabled-base($color);
+      }
+    } @else {
+      @include hyperlink-disabled-base($color);
+    }
   }
 }
 

@@ -2,12 +2,12 @@ import { sourceCodePro } from "@/assets/fonts/Fonts";
 import styleNames from "@/assets/utils/styleNames";
 import styles from "../Panel.module.scss";
 
-type PanelTextProps = {
+type PanelSkillProps = {
   name: string;
   theme: "Design" | "Development";
 };
 
-const PanelText = ({ name, theme }: PanelTextProps) => {
+const PanelSkill = ({ name, theme }: PanelSkillProps) => {
   return (
     <span
       className={`${styleNames(styles, ["PanelSkills", theme && `PanelSkills--${theme}`])} ${
@@ -19,4 +19,4 @@ const PanelText = ({ name, theme }: PanelTextProps) => {
   );
 };
 
-export default PanelText;
+export default PanelSkill;
