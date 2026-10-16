@@ -1,55 +1,34 @@
 import { cabin, sourceCodePro } from "@fonts/Fonts";
-import parse from "html-react-parser";
 import styleNames from "@utils/styleNames";
-import { Row, Column } from "@components/Grid/Grid";
+import { Row, Column, RowWrapper } from "@components/Grid/Grid";
+import InlineText from "@components/InlineText/InlineText";
+import { PanelBlock } from "@type/ContentTypes";
 import PanelText from "./Atoms/PanelText";
 import PanelSkill from "./Atoms/PanelSkill";
+import PanelRow from "./Atoms/PanelRow";
 import styles from "./Panel.module.scss";
 
-type SiteLink = {
-  linkText: string;
-  url: string;
-  wip?: boolean;
-};
-
-type ColourTheme = "Gunmetal" | "Sapphire" | "Dark" | "Light" | string;
-
-type PanelProps = {
-  isDark?: boolean;
-  colourTheme?: ColourTheme;
-  heading?: string;
-  subheading?: string;
-  projectTitle?: string;
-  dates?: string;
-  designSkills?: string[];
-  developmentSkills?: string[];
-  description?: string;
-  siteLinks?: SiteLink[];
-  children?: React.ReactNode;
-};
+type PanelProps = Omit<PanelBlock, "type">;
 
 const Panel = ({
-  isDark = false,
-  colourTheme = "Light",
+  theme,
   heading,
   subheading,
-  projectTitle,
   dates,
+  intro,
   designSkills,
   developmentSkills,
-  description,
-  siteLinks,
-  children,
+  rows,
 }: PanelProps) => {
-  const appearanceTheme = isDark ? "Dark" : "Light";
+  const appearanceTheme = theme === "Light" ? "Light" : "Dark";
 
   return (
     <section
       className={styleNames(styles, [
         "Panel",
-        colourTheme && `Panel--${colourTheme}`,
-        appearanceTheme && `Panel--${appearanceTheme}`,
-        !projectTitle && `Panel--NoHeader`,
+        `Panel--${theme}`,
+        `Panel--${appearanceTheme}`,
+        !intro && `Panel--NoHeader`,
       ])}
     >
       <Row>
@@ -59,7 +38,7 @@ const Panel = ({
               <h2
                 className={`${styleNames(styles, [
                   "Heading",
-                  appearanceTheme && `Heading--${appearanceTheme}`,
+                  `Heading--${appearanceTheme}`,
                 ])} ${cabin.className}`}
               >
                 {heading}
@@ -70,7 +49,7 @@ const Panel = ({
               <p
                 className={`${styleNames(styles, [
                   "Subheading",
-                  appearanceTheme && `Subheading--${appearanceTheme}`,
+                  `Subheading--${appearanceTheme}`,
                 ])} ${cabin.className}`}
               >
                 {subheading}
@@ -83,17 +62,17 @@ const Panel = ({
               </PanelText>
             )}
 
-            {projectTitle && (
+            {intro && (
               <PanelText
                 type="ProjectTitle"
                 theme={appearanceTheme}
                 fontClass={sourceCodePro.className}
               >
-                {parse(projectTitle)}
+                <InlineText text={intro} />
               </PanelText>
             )}
 
-            {(designSkills?.length || developmentSkills?.length) && (
+            {Boolean(designSkills?.length || developmentSkills?.length) && (
               <div className={styles.AllSkillsWrapper}>
                 {designSkills && (
                   <div className={styles.SkillsWrapper}>
@@ -112,39 +91,19 @@ const Panel = ({
                 )}
               </div>
             )}
-
-            {description && (
-              <PanelText
-                type="Description"
-                theme={appearanceTheme}
-                fontClass={sourceCodePro.className}
-              >
-                {parse(description)}
-              </PanelText>
-            )}
-
-            {siteLinks?.map(({ url, linkText, wip }, index) => (
-              <PanelText
-                key={index}
-                type="SiteLink"
-                theme={appearanceTheme}
-                fontClass={sourceCodePro.className}
-              >
-                <a
-                  href={url}
-                  className={styleNames(styles, [wip && "Wip"])}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {linkText}
-                </a>
-              </PanelText>
-            ))}
           </div>
         </Column>
 
         <Column sm={12}>
-          {children && <div className={styles.PanelTileWrapper}>{children}</div>}
+          {rows.length > 0 && (
+            <div className={styles.PanelTileWrapper}>
+              <RowWrapper>
+                {rows.map((row, index) => (
+                  <PanelRow key={index} {...row} />
+                ))}
+              </RowWrapper>
+            </div>
+          )}
         </Column>
       </Row>
     </section>

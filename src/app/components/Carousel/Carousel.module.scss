@@ -1,0 +1,24 @@
+@import "@variables/variables";
+
+// -----------------------------
+// Carousel
+// -----------------------------
+.CarouselWrapper {
+  width: 100%;
+  overflow: hidden;
+  @include toRem(margin-bottom, 16);
+  @include toRem(padding-left, 16);
+
+  // Ensure the last carousel doesn't add unwanted spacing
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.CarouselRow {
+  display: flex;
+  @include toRem(gap, 16);
+  user-select: none;
+  opacity: 0; // Hidden until ready to avoid CLS
+  transition: opacity 0.3s ease;
+}

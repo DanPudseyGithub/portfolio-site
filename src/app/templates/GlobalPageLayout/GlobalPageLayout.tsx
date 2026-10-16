@@ -1,20 +1,18 @@
 import React from "react";
-import globalData from "@pageData/global.json";
 import Footer from "@furniture/Footer/Footer";
+import { SiteSettings } from "@type/ContentTypes";
 import styles from "./GlobalPageLayout.module.scss";
 
 interface GlobalPageLayoutProps {
+  footer: SiteSettings["footer"];
   children: React.ReactNode;
 }
 
-const { components } = globalData;
-const { Footer: FooterData } = components;
-
-const GlobalPageLayout: React.FC<GlobalPageLayoutProps> = ({ children }) => {
+const GlobalPageLayout: React.FC<GlobalPageLayoutProps> = ({ footer, children }) => {
   return (
     <>
       <main className={styles.Main}>{children}</main>
-      <Footer heading={FooterData.heading} subheading={FooterData.subheading} />
+      <Footer {...footer} />
     </>
   );
 };

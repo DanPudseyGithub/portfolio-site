@@ -1,94 +1,50 @@
-import parse from "html-react-parser";
-import { cabin, sourceCodePro } from "@fonts/Fonts";
 import Image from "next/image";
+import { cabin, sourceCodePro } from "@fonts/Fonts";
 import styleNames from "@utils/styleNames";
+import InlineText from "@components/InlineText/InlineText";
+import { ContentLink, Highlight, ProjectMedia } from "@type/ContentTypes";
 import PanelTileLink from "./PanelTileLink";
-import { LinkType } from "@type/LinkType";
 import styles from "../Panel.module.scss";
 
-type PanelTileProps = {
-  projectHeading?: string;
-  description?: string;
-  imageUrl?: string;
-  isDark?: boolean;
-  video?: {
-    webm: string;
-    mp4: string;
-    poster: string;
-  };
-  siteLinks?: LinkType[];
+type PanelMediaTileProps = {
+  media: ProjectMedia;
+  /** Fallback alt text when the image has none of its own */
+  alt: string;
 };
 
-const PanelTile = ({
-  projectHeading,
-  description,
-  imageUrl,
-  isDark = false,
-  video,
-  siteLinks,
-}: PanelTileProps) => {
-  const isMedia = video || imageUrl;
+export const PanelMediaTile = ({ media, alt }: PanelMediaTileProps) => {
+  const isVideo = media.kind === "video";
+  const aspectRatio = media.kind === "image" ? media.aspectRatio : undefined;
   return (
     <article
       className={styleNames(styles, [
         "PanelTile",
-        imageUrl && "PanelTile--Image",
-        video && "PanelTile--Video",
-        isDark ? "PanelTile--Dark" : "PanelTile--Light",
-        isMedia ? "PanelTile--Media" : "PanelTile--Copy",
+        isVideo ? "PanelTile--Video" : "PanelTile--Image",
+        "PanelTile--Dark",
+        "PanelTile--Media",
       ])}
     >
-      <div className={styles.PanelTileInner}>
-        {projectHeading && (
-          <p
-            className={`${styleNames(styles, [
-              "ProjectHeading",
-              isDark ? "ProjectHeading--Dark" : "ProjectHeading--Light",
-            ])} ${cabin.className}`}
-          >
-            {projectHeading}
-          </p>
-        )}
-        {description && (
-          <div
-            className={`${styleNames(styles, [
-              "ProjectDescription",
-              isDark ? "ProjectDescription--Dark" : "ProjectDescription--Light",
-            ])} ${sourceCodePro.className}`}
-          >
-            {parse(description)}
-          </div>
-        )}
-        {siteLinks && siteLinks.length > 0 && (
-          <div className={styles.PanelTileLinkWrapper}>
-            {siteLinks.map(({ url, linkText, target, isDark, wip }, index) => (
-              <PanelTileLink
-                key={index}
-                url={url}
-                linkText={linkText}
-                target={target}
-                isDark={isDark}
-                wip={wip}
-              />
-            ))}
-          </div>
-        )}
-        {imageUrl && (
+      <div
+        className={styles.PanelTileInner}
+        style={
+          aspectRatio ? ({ "--tile-aspect-ratio": aspectRatio } as React.CSSProperties) : undefined
+        }
+      >
+        {media.kind === "image" && (
           <Image
-            src={imageUrl}
-            alt={projectHeading || "Project image"}
+            src={media.src}
+            alt={media.alt ?? alt}
             className={styles.Image}
-            fill={false}
             width={348}
             height={348}
             quality={100}
           />
         )}
-        {video && (
+        {media.kind === "video" && (
           <div className={styles.VideoWrapper}>
-            <video muted autoPlay loop playsInline poster={video.poster} width="532" height="376">
-              <source src={video.webm} type="video/webm" />
-              <source src={video.mp4} type="video/mp4" />
+            <video muted autoPlay loop playsInline poster={media.poster} width="532" height="376">
+              <source src={media.webm} type="video/webm" />
+              <source src={media.mp4} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -98,4 +54,69 @@ const PanelTile = ({
   );
 };
 
-export default PanelTile;
+type PanelCopyTileProps = {
+  heading: string;
+  body?: string;
+  highlights?: Highlight[];
+  links?: ContentLink[];
+};
+
+export const PanelCopyTile = ({ heading, body, highlights, links }: PanelCopyTileProps) => {
+  const hasDescription = body || highlights?.length;
+  return (
+    <article className={styleNames(styles, ["PanelTile", "PanelTile--Light", "PanelTile--Copy"])}>
+      <div className={styles.PanelTileInner}>
+        <p
+          className={`${styleNames(styles, ["ProjectHeading", "ProjectHeading--Light"])} ${
+            cabin.className
+          }`}
+        >
+          {heading}
+        </p>
+        {hasDescription && (
+          <div
+            className={`${styleNames(styles, [
+              "ProjectDescription",
+              "ProjectDescription--Light",
+            ])} ${sourceCodePro.className}`}
+          >
+            {body && (
+              <p>
+                <InlineText text={body} />
+              </p>
+            )}
+            {highlights && highlights.length > 0 && (
+              <ol>
+                {highlights.map((highlight, index) =>
+                  typeof highlight === "string" ? (
+                    <li key={index}>
+                      <InlineText text={highlight} />
+                    </li>
+                  ) : (
+                    <li key={index}>
+                      <InlineText text={highlight.text} />
+                      <ol>
+                        {highlight.items.map((item, itemIndex) => (
+                          <li key={itemIndex}>
+                            <InlineText text={item} />
+                          </li>
+                        ))}
+                      </ol>
+                    </li>
+                  )
+                )}
+              </ol>
+            )}
+          </div>
+        )}
+        {links && links.length > 0 && (
+          <div className={styles.PanelTileLinkWrapper}>
+            {links.map((link, index) => (
+              <PanelTileLink key={index} {...link} />
+            ))}
+          </div>
+        )}
+      </div>
+    </article>
+  );
+};

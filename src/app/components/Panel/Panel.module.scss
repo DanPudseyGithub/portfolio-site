@@ -171,6 +171,12 @@ $border-radius: 4px;
     .PanelTileInner {
       height: 100%;
       background-color: $color-black;
+      // Can be overridden per image with the aspectRatio content field
+      aspect-ratio: var(--tile-aspect-ratio, 3/2);
+
+      @include media(">tablet") {
+        aspect-ratio: unset;
+      }
     }
 
     img {

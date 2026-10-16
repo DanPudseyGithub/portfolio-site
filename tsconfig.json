@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@/*": ["./src/app/*"],
+      "@globals": ["./src/app/globals.scss"],
       "@variables*": ["./src/app/assets/styles/variables/*"],
       "@pageData*": ["./src/app/page-data/*"],
       "@templates*": ["./src/app/templates/*"],

@@ -3,8 +3,8 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
-import styled from "styled-components";
 import useInView from "@utils/useInView";
+import styles from "./Carousel.module.scss";
 
 gsap.registerPlugin(Draggable);
 
@@ -12,30 +12,6 @@ type CarouselProps = {
   children: React.ReactNode;
   direction?: "left" | "right"; // controls autoplay scroll direction
 };
-
-/* ---------------- Styled Components ---------------- */
-
-const CarouselWrapper = styled.section`
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 16px;
-  padding-left: 16px;
-
-  /* Ensure the last carousel doesn’t add unwanted spacing */
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
-
-const CarouselRow = styled.div`
-  display: flex;
-  gap: 16px;
-  user-select: none;
-  opacity: 0; /* hidden until ready to avoid CLS */
-  transition: opacity 0.3s ease;
-`;
-
-/* ---------------- Component ---------------- */
 
 export const Carousel = ({ children, direction }: CarouselProps) => {
   // Detect when the carousel is visible to avoid running GSAP offscreen
@@ -106,17 +82,18 @@ export const Carousel = ({ children, direction }: CarouselProps) => {
   }, [inView, direction]);
 
   return (
-    <CarouselWrapper ref={carouselRef}>
-      <CarouselRow
+    <section ref={carouselRef} className={styles.CarouselWrapper}>
+      <div
         ref={rowRef}
+        className={styles.CarouselRow}
         style={{
           visibility: isReady ? "visible" : "hidden",
           opacity: isReady ? 1 : 0,
         }}
       >
         {children}
-      </CarouselRow>
-    </CarouselWrapper>
+      </div>
+    </section>
   );
 };
 
