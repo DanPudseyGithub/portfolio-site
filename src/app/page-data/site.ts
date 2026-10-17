@@ -8,6 +8,7 @@ const siteSettings: SiteSettings = {
   },
   email: "dan@danpudsey.com",
   githubUrl: "https://github.com/DanPudseyGithub/",
+  linkedInUrl: "https://www.linkedin.com/in/danpudsey/",
   footer: {
     heading: "Credits.",
     body: "This site has been designed & built by Dan Pudsey. It'd be weird if it wasn't. I used Next.js, TypeScript, GSAP, Lottie, Yarn, SCSS, SVGs, GitHub & designed it in Figma.",

@@ -105,6 +105,7 @@ export type SiteSettings = {
   phone: { display: string; number: string };
   email: string;
   githubUrl: string;
+  linkedInUrl: string;
   footer: {
     heading: string;
     body: string;

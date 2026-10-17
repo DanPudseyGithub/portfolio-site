@@ -7,7 +7,7 @@ import { HeaderBlock, SiteSettings } from "@type/ContentTypes";
 import styles from "./Header.module.scss";
 
 type HeaderProps = Omit<HeaderBlock, "type"> & {
-  site: Pick<SiteSettings, "cvUrl" | "phone" | "email" | "githubUrl">;
+  site: Pick<SiteSettings, "cvUrl" | "phone" | "email" | "githubUrl" | "linkedInUrl">;
 };
 
 const Header = ({ heading, subheading, showAbout = true, site }: HeaderProps) => {
@@ -47,6 +47,15 @@ const Header = ({ heading, subheading, showAbout = true, site }: HeaderProps) =>
                     </Link>
                   </>
                 )}
+                <span className={styles.Separator}>|</span>
+                <a
+                  className={styles.SubheadingLink}
+                  href={site.linkedInUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
                 <span className={styles.Separator}>|</span>
                 <a
                   className={styles.SubheadingLink}
