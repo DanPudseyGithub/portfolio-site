@@ -1,4 +1,5 @@
 import { TestimonialType } from "@type/TestimonialType";
+import { IconName } from "@components/Icon/Icon";
 
 // Content model for the page data. Shaped to map onto Sanity schema types later on.
 
@@ -14,6 +15,13 @@ export type ContentLink = {
 
 /** A bullet point, optionally with a nested list beneath it */
 export type Highlight = InlineText | { text: InlineText; items: InlineText[] };
+
+/** A "Reading: ..." style line with an icon, e.g. what you're currently reading or watching */
+export type CurrentlyItem = {
+  icon: IconName;
+  label: string;
+  value: InlineText;
+};
 
 /** A CSS aspect ratio such as "1/1" or "3/2" */
 export type AspectRatio = `${number}/${number}`;
@@ -37,6 +45,7 @@ export type ProjectRow = {
   heading: string;
   body?: InlineText;
   highlights?: Highlight[];
+  currently?: CurrentlyItem[];
   links?: ContentLink[];
 };
 

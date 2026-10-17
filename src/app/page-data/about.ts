@@ -21,6 +21,16 @@ const aboutPage: Page = {
           mediaWidth: "narrow",
           heading: "Dan Pudsey",
           body: "I love working in teams, very social, big fan of fancy dress, 80s retro, Russian constructivist art, palm trees & banana coladas.",
+          currently: [
+            { icon: "book", label: "Reading", value: "The Ends of the World by Peter Brannen" },
+            {
+              icon: "headphones",
+              label: "Listening to",
+              value: "Frances the Mute by The Mars Volta",
+            },
+            { icon: "pen", label: "Writing", value: "Space Cult" },
+            { icon: "tv", label: "Watching", value: "Pluribus" },
+          ],
         },
       ],
     },

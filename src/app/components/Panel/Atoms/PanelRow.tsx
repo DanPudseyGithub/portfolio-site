@@ -10,6 +10,7 @@ const PanelRow = ({
   heading,
   body,
   highlights,
+  currently,
   links,
 }: ProjectRow) => {
   const isNarrow = mediaWidth === "narrow";
@@ -36,7 +37,13 @@ const PanelRow = ({
         mdOrder={copyOrder}
         lgOrder={copyOrder}
       >
-        <PanelCopyTile heading={heading} body={body} highlights={highlights} links={links} />
+        <PanelCopyTile
+          heading={heading}
+          body={body}
+          highlights={highlights}
+          currently={currently}
+          links={links}
+        />
       </Column>
     </Row>
   );

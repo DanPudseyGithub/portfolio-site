@@ -253,6 +253,36 @@ $border-radius: 4px;
   }
 }
 
+.Currently {
+  display: grid;
+  @include toRem(gap, 12);
+  @include toRem(margin-top, 20);
+  @include toRem(margin-bottom, 20);
+  @include text-theme-color;
+  @include text-style-regular;
+}
+
+.CurrentlyItem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  @include toRem(column-gap, 8);
+}
+
+.CurrentlyLabel {
+  display: inline-flex;
+  align-items: center;
+  @include toRem(gap, 10);
+  font-weight: 700;
+}
+
+.CurrentlyIcon {
+  flex-shrink: 0;
+  @include toRem(width, 20);
+  @include toRem(height, 20);
+  color: $klein-blue;
+}
+
 .VideoWrapper {
   height: 100%;
   width: 100%;

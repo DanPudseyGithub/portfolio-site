@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { cabin, sourceCodePro } from "@fonts/Fonts";
 import styleNames from "@utils/styleNames";
+import Icon from "@components/Icon/Icon";
 import InlineText from "@components/InlineText/InlineText";
-import { ContentLink, Highlight, ProjectMedia } from "@type/ContentTypes";
+import { ContentLink, CurrentlyItem, Highlight, ProjectMedia } from "@type/ContentTypes";
 import PanelTileLink from "./PanelTileLink";
 import styles from "../Panel.module.scss";
 
@@ -58,10 +59,17 @@ type PanelCopyTileProps = {
   heading: string;
   body?: string;
   highlights?: Highlight[];
+  currently?: CurrentlyItem[];
   links?: ContentLink[];
 };
 
-export const PanelCopyTile = ({ heading, body, highlights, links }: PanelCopyTileProps) => {
+export const PanelCopyTile = ({
+  heading,
+  body,
+  highlights,
+  currently,
+  links,
+}: PanelCopyTileProps) => {
   const hasDescription = body || highlights?.length;
   return (
     <article className={styleNames(styles, ["PanelTile", "PanelTile--Light", "PanelTile--Copy"])}>
@@ -108,6 +116,21 @@ export const PanelCopyTile = ({ heading, body, highlights, links }: PanelCopyTil
               </ol>
             )}
           </div>
+        )}
+        {currently && currently.length > 0 && (
+          <dl className={`${styles.Currently} ${sourceCodePro.className}`}>
+            {currently.map(({ icon, label, value }, index) => (
+              <div key={index} className={styles.CurrentlyItem}>
+                <dt className={styles.CurrentlyLabel}>
+                  <Icon name={icon} className={styles.CurrentlyIcon} />
+                  {label}:
+                </dt>
+                <dd>
+                  <InlineText text={value} />
+                </dd>
+              </div>
+            ))}
+          </dl>
         )}
         {links && links.length > 0 && (
           <div className={styles.PanelTileLinkWrapper}>
