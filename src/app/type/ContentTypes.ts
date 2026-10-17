@@ -110,6 +110,7 @@ export type SiteSettings = {
     heading: string;
     body: string;
     sourceCode: ContentLink;
+    clientsHeading: string;
   };
   testimonials: {
     heading: string;

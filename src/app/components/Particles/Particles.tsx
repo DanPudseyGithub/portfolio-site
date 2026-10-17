@@ -2,8 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-const defaultFooterHeight = 320;
-
 export const ParticleFooterBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -18,13 +16,22 @@ export const ParticleFooterBackground: React.FC = () => {
     let particles: Particle[] = [];
     const numParticles = 100;
 
-    // Resize handler
+    // Match the drawing surface to the canvas' rendered size, otherwise the CSS stretches the particles
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = defaultFooterHeight;
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+
+      // Pull any particles left outside the new bounds back in so they don't get stuck bouncing
+      particles.forEach((p) => {
+        p.x = Math.min(p.x, canvas.width);
+        p.y = Math.min(p.y, canvas.height);
+      });
     };
     resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+
+    // Watches the canvas rather than the window, so content changing the footer height is picked up too
+    const resizeObserver = new ResizeObserver(resizeCanvas);
+    resizeObserver.observe(canvas);
 
     // Random colour generator with a minimum brightness
     const getRandomColor = () => {
@@ -87,12 +94,12 @@ export const ParticleFooterBackground: React.FC = () => {
     // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("resize", resizeCanvas);
+      resizeObserver.disconnect();
     };
   }, []);
 
   return (
-    <div style={{ position: "absolute", width: "100%", height: "100%", overflow: "hidden" }}>
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
       <canvas
         ref={canvasRef}
         style={{

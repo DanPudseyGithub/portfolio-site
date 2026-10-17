@@ -16,6 +16,7 @@ const siteSettings: SiteSettings = {
       text: "View source code on Github",
       url: "https://github.com/DanPudseyGithub/portfolio-site",
     },
+    clientsHeading: "Clients, past and present",
   },
   testimonials: {
     heading:

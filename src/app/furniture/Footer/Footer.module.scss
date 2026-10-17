@@ -44,3 +44,9 @@
     }
   }
 }
+
+.Inner {
+  width: 100%;
+  @include toRem(padding-top, 60);
+  @include toRem(padding-bottom, 60);
+}

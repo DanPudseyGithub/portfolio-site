@@ -1,0 +1,105 @@
+@import "@variables/variables.scss";
+
+.ClientLogos {
+  @include toRem(margin-top, 40);
+  @include toRem(margin-bottom, 80);
+}
+
+.Heading {
+  @include text-style-heading-1;
+  @include toRem(margin-bottom, 20);
+  color: $font-colour-light;
+}
+
+.List {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  @include toRem(gap, 10);
+  list-style: none;
+  padding: 0;
+  @include toRem(padding-top, 40);
+  margin: 0;
+
+  @include media(">tablet") {
+    @include toRem(gap, 20);
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.Item {
+  position: relative;
+  opacity: 0.7;
+  transition: opacity $link-animation;
+  cursor: help;
+  @include toRem(margin-bottom, 20);
+  height: 100px;
+
+  @include media(">tablet") {
+    aspect-ratio: 5/2;
+    height: auto;
+  }
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $acid-yellow;
+    outline-offset: 4px;
+  }
+}
+
+.Logo {
+  object-fit: contain;
+  margin: auto;
+  max-width: 120px;
+  max-height: 64px;
+
+  @include media(">largeMobile") {
+    max-width: 140px;
+    max-height: 82px;
+  }
+
+  @include media(">tablet") {
+    max-width: 160px;
+    max-height: unset;
+  }
+}
+
+// Fixed to the viewport, the transform is set in ClientLogo to follow the mouse
+.Popover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  @include toRem(max-width, 280);
+  @include toRem(padding, 16);
+  border-radius: 8px;
+  background-color: $color-white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.15s ease,
+    visibility 0.15s ease;
+
+  &--Active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.PopoverTitle {
+  @include toRem(font-size, 18);
+  @include toRem(line-height, 24);
+  @include toRem(margin-bottom, 4);
+  color: $font-colour-dark;
+}
+
+.PopoverDescription {
+  @include text-style-small;
+  color: $font-colour-dark;
+}
