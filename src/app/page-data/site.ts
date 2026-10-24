@@ -1,4 +1,13 @@
 import { SiteSettings } from "@type/ContentTypes";
+import agnesFinlayson from "@images/testimonials/Agnes-Finlayson.jpeg";
+import angeloPalmieri from "@images/testimonials/Angelo-Palmieri.jpeg";
+import daleGreenhood from "@images/testimonials/Dale-Greenhood.jpeg";
+import jasonEmery from "@images/testimonials/Jason-Emery.jpeg";
+import jenniferChilton from "@images/testimonials/Jennifer-Chilton.jpeg";
+import laurenceTaylor from "@images/testimonials/Laurence-Taylor.jpeg";
+import paulMasek from "@images/testimonials/Paul-Masek.jpeg";
+import tomMcQuillan from "@images/testimonials/Tom-McQuillan.jpeg";
+import vivienneKennedy from "@images/testimonials/Vivienne-Kennedy.jpeg";
 
 const siteSettings: SiteSettings = {
   cvUrl: "https://danpudsey.com/assets/pdf/Dan_Pudsey_CV_DP_V01_02162026.pdf",
@@ -26,7 +35,7 @@ const siteSettings: SiteSettings = {
         id: 1,
         quote:
           "Dan is an absolute pleasure to work with. Not only is he a genuinely nice person, but he also brings a high level of creativity to every project.",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Dale-Greenhood.jpeg",
+        imageUrl: daleGreenhood.src,
         author: "Dale Greenhood",
         role: "Lead developer, Animal Friends",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -35,7 +44,7 @@ const siteSettings: SiteSettings = {
         id: 2,
         quote:
           "Dan is a superb digital designer and developer. He has a fantastic ability to think creatively, define a digital vision for a product, talk to the business and manage their input, and run the development team to get it done!!",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Laurence-Taylor.jpeg",
+        imageUrl: laurenceTaylor.src,
         author: "Laurence Taylor",
         role: "COO, London Wildlife Trust",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -44,7 +53,7 @@ const siteSettings: SiteSettings = {
         id: 3,
         quote:
           "Highly knowledgeable and technically capable across all areas of frontend development. Would highly recommend for any team and would love to work with him again in the future.",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Jason-Emery.jpeg",
+        imageUrl: jasonEmery.src,
         author: "Jason Emery",
         role: "Front end architect, Frog Design",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -53,7 +62,7 @@ const siteSettings: SiteSettings = {
         id: 4,
         quote:
           "He is a developer that cares greatly about delivering a result that respects the intentions of a design team. In addition, he is passionate about making sure a project has the UI flourishes that turn a good website or web application into a great one.",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Paul-Masek.jpeg",
+        imageUrl: paulMasek.src,
         author: "Paul Masek",
         role: "Front-end developer, Rufus Leonard",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -70,7 +79,7 @@ const siteSettings: SiteSettings = {
         id: 6,
         quote:
           "Dan has been a pleasure to work with and very patient with a non-techie's incessant queries and demands!",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Vivienne-Kennedy.jpeg",
+        imageUrl: vivienneKennedy.src,
         author: "Vivienne Kennedy",
         role: "Director of Broadmead BID",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -79,7 +88,7 @@ const siteSettings: SiteSettings = {
         id: 7,
         quote:
           "I wouldn't hesitate to recommend Dan. He designed and developed two WordPress based sites for me, managing the process with ease and guiding me through the CMS element so that I could easily change the website myself.",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Agnes-Finlayson.jpeg",
+        imageUrl: agnesFinlayson.src,
         author: "Agnes Finlayson",
         role: "Marketing manager, WOMAD Festival",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -88,7 +97,7 @@ const siteSettings: SiteSettings = {
         id: 8,
         quote:
           "Dan is highly adaptable, encouraging and supportive. He has a positive attitude and a desire to produce quality work.",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Angelo-Palmieri.jpeg",
+        imageUrl: angeloPalmieri.src,
         author: "Angelo Palmieri",
         role: "Senior web engineer, ASOS",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -105,7 +114,7 @@ const siteSettings: SiteSettings = {
         id: 10,
         quote:
           "He has a terrific attitude towards work and always gives 100%, very enthusiastic about development and is always looking to progress and stay on the bleeding edge of the technology stack.",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Jason-Emery.jpeg",
+        imageUrl: jasonEmery.src,
         author: "Jason Emery",
         role: "Senior front-end developer, Rufus Leonard",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -121,7 +130,7 @@ const siteSettings: SiteSettings = {
         id: 12,
         quote:
           "His ability to think outside the box and come up with positive, practical solutions is something that truly sets him apart.",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Dale-Greenhood.jpeg",
+        imageUrl: daleGreenhood.src,
         author: "Dale Greenhood",
         role: "Lead developer, Animal Friends",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -138,7 +147,7 @@ const siteSettings: SiteSettings = {
         id: 14,
         quote:
           "Dan is someone you want to work with - his energy is infectious which he brings to his profession on a daily basis flowing into his creativity and delivery.",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Jennifer-Chilton.jpeg",
+        imageUrl: jenniferChilton.src,
         author: "JC",
         role: "Director of Programmes and Technology, New Scientist",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -147,7 +156,7 @@ const siteSettings: SiteSettings = {
         id: 15,
         quote:
           "Dan has improved a significant number of New Scientist's products, design, and UX and has also brought in great discipline and techniques to improve development, and built buy in and investment from the business in what he recommends.",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Laurence-Taylor.jpeg",
+        imageUrl: laurenceTaylor.src,
         author: "Laurence Taylor",
         role: "Managing director, New Scientist",
         cite: "https://www.linkedin.com/in/danpudsey/",
@@ -157,7 +166,7 @@ const siteSettings: SiteSettings = {
         quote:
           "Dan is a joy to work with, a brilliant developer, and has a real customer-focused approach to UX and design.",
         author: "Tom McQuillan",
-        imageUrl: "https://danpudsey.com/assets/img/v2/profile-pictures/Tom-McQuillan.jpeg",
+        imageUrl: tomMcQuillan.src,
         role: "Technology Director, New Scientist",
         cite: "https://www.linkedin.com/in/danpudsey/",
       },

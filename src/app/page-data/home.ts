@@ -1,4 +1,19 @@
 import { Page } from "@type/ContentTypes";
+import carbonLogo from "@images/client-logos/Carbon_Logo_White_Alpha_V001.gif";
+import measuredEvents from "@images/bento/measured-events.webp";
+import uncommonEditorialGraphic from "@images/bento/uncommon-editorial-graphic.webp";
+import iphoneIconCloseUp from "@images/bento/iphone-icon-close-up.webp";
+import newScientistWebsite from "@images/bento/new-scientist-website.webp";
+import curiosityEngine from "@images/bento/curiosity-engine.webp";
+import newScientistAcademy from "@images/bento/new-scientist-academy.webp";
+import toursSearchAndFilter from "@images/bento/tours-search-and-filter.webp";
+import legoDinosaur from "@images/bento/LEGO-dinosaur.webp";
+import studentHotelCinema from "@images/bento/the-student-hotel-cinema.webp";
+import studentHotelLaundryRoom from "@images/bento/the-student-hotel-laundry-room.webp";
+import studentHotelSocialSpace from "@images/bento/the-student-hotel-social-space.webp";
+import crosswordPoster from "@images/bento/crossword-poster.webp";
+import crosswordAnimationWebm from "@images/bento/crossword-animation.webm";
+import crosswordAnimationMp4 from "@images/bento/crossword-animation.mp4";
 
 const homePage: Page = {
   blocks: [
@@ -22,7 +37,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/carbon/Carbon_Logo_White_Alpha_V001.gif",
+            src: carbonLogo.src,
           },
           mediaWidth: "narrow",
           heading: "Web design",
@@ -41,7 +56,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/measured/measured-events.webp",
+            src: measuredEvents.src,
           },
           mediaPosition: "right",
           heading: "Branding, web design and development",
@@ -61,7 +76,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/uncommon-editorial/uncommon-editorial-graphic.webp",
+            src: uncommonEditorialGraphic.src,
           },
           mediaWidth: "narrow",
           heading: "Branding and CMS powered site",
@@ -113,7 +128,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/new-scientist/iphone-icon-close-up.png",
+            src: iphoneIconCloseUp.src,
           },
           mediaWidth: "narrow",
           heading: "Mobile app design",
@@ -138,7 +153,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/new-scientist/new-scientist-website.webp",
+            src: newScientistWebsite.src,
           },
           mediaPosition: "right",
           heading: "Flagship website design & build",
@@ -159,7 +174,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/new-scientist/curiosity-engine.webp",
+            src: curiosityEngine.src,
           },
           heading: "Curiosity Engine AI implementation",
           highlights: [
@@ -176,7 +191,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/new-scientist/new-scientist-academy.png",
+            src: newScientistAcademy.src,
           },
           mediaWidth: "narrow",
           heading: "Academy courses design and build",
@@ -387,7 +402,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/new-scientist/tours-search-and-filter.png",
+            src: toursSearchAndFilter.src,
           },
           mediaWidth: "narrow",
           heading: "Search & filter for Discovery Tours",
@@ -408,9 +423,9 @@ const homePage: Page = {
         {
           media: {
             kind: "video",
-            webm: "https://danpudsey.com/assets/img/v2/bento/new-scientist/games-animation.webm",
-            mp4: "https://danpudsey.com/assets/img/v2/bento/new-scientist/games-animation.mp4",
-            poster: "https://danpudsey.com/assets/img/v2/bento/new-scientist/games-poster.png",
+            webm: crosswordAnimationWebm,
+            mp4: crosswordAnimationMp4,
+            poster: crosswordPoster.src,
           },
           mediaPosition: "right",
           heading: "Create a hub for games",
@@ -429,7 +444,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/new-scientist/LEGO-dinosaur.png",
+            src: legoDinosaur.src,
           },
           mediaWidth: "narrow",
           heading: "Microsites",
@@ -481,7 +496,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/rufus-leonard/the-student-hotel-cinema.jpg",
+            src: studentHotelCinema.src,
           },
           mediaWidth: "narrow",
           heading: "Front end development",
@@ -502,7 +517,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/rufus-leonard/the-student-hotel-laundry-room.jpg",
+            src: studentHotelLaundryRoom.src,
           },
           mediaPosition: "right",
           heading: "Animation and motion",
@@ -515,7 +530,7 @@ const homePage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/bento/rufus-leonard/the-student-hotel-social-space.jpg",
+            src: studentHotelSocialSpace.src,
           },
           mediaWidth: "narrow",
           heading: "Team management",

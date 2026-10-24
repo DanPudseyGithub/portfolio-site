@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
+  trailingSlash: true,
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "danpudsey.com" },
@@ -10,6 +11,15 @@ const nextConfig = {
   },
 
   webpack(config) {
+    config.module.rules.push({
+      test: /\.(mp4|webm)$/i,
+      type: "asset/resource",
+      generator: {
+        filename: "static/media/[name].[hash][ext]",
+      },
+    });
+
+
     // Grab the existing file loader that handles SVGs
     const fileLoaderRule = config.module.rules.find(
       (rule) => rule.test && rule.test instanceof RegExp && rule.test.test(".svg")

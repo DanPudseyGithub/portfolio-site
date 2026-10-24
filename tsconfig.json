@@ -31,6 +31,7 @@
       "@styles*": ["./src/app/assets/styles/*"],
       "@icons*": ["./src/app/assets/icons/*"],
       "@logo*": ["./src/app/assets/logo/*"],
+      "@images*": ["./src/app/assets/images/*"],
       "@type*": ["./src/app/type/*"]
     }
   },

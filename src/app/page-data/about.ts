@@ -1,4 +1,5 @@
 import { Page } from "@type/ContentTypes";
+import danPudseyProfilePicture from "@images/about/dan-pudsey-profile-picture.jpg";
 
 const aboutPage: Page = {
   blocks: [
@@ -15,7 +16,7 @@ const aboutPage: Page = {
         {
           media: {
             kind: "image",
-            src: "https://danpudsey.com/assets/img/v2/profile-pictures/dan-pudsey-profile-picture.jpg",
+            src: danPudseyProfilePicture.src,
             aspectRatio: "1/1",
           },
           mediaWidth: "narrow",
