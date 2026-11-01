@@ -8,9 +8,10 @@ const description =
 
 // Square image, so X uses the "summary" card rather than "summary_large_image"
 const socialImage = {
-  url: "https://danpudsey.com/assets/img/v2/meta/social-meta-image-square.png",
+  url: "/meta/social-meta.jpg",
   width: 1080,
   height: 1080,
+  type: "image/jpeg",
   alt: "Dan Pudsey, front end developer and digital designer",
 };
 
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    url: "/",
     siteName: title,
     title,
     description,

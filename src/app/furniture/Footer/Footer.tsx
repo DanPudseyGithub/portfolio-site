@@ -32,7 +32,6 @@ const Footer = ({ heading, body, sourceCode, clientsHeading }: FooterProps) => {
       <div className={styles.Inner}>
         <Row>
           <Column sm={12}>
-            {/* Placeholder clients, swap in the real logos */}
             <ClientLogos heading={clientsHeading}>
               <ClientLogo
                 logoUrl={bbc6MusicLogo}

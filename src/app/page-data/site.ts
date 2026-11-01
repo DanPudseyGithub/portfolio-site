@@ -1,4 +1,5 @@
 import { SiteSettings } from "@type/ContentTypes";
+import cv from "@pdf/Dan_Pudsey_CV_DP_V01_02162026.pdf";
 import agnesFinlayson from "@images/testimonials/Agnes-Finlayson.jpeg";
 import angeloPalmieri from "@images/testimonials/Angelo-Palmieri.jpeg";
 import daleGreenhood from "@images/testimonials/Dale-Greenhood.jpeg";
@@ -10,7 +11,7 @@ import tomMcQuillan from "@images/testimonials/Tom-McQuillan.jpeg";
 import vivienneKennedy from "@images/testimonials/Vivienne-Kennedy.jpeg";
 
 const siteSettings: SiteSettings = {
-  cvUrl: "https://danpudsey.com/assets/pdf/Dan_Pudsey_CV_DP_V01_02162026.pdf",
+  cvUrl: cv,
   phone: {
     display: "07970 943399",
     number: "+447970943399",
@@ -25,7 +26,7 @@ const siteSettings: SiteSettings = {
       text: "View source code on Github",
       url: "https://github.com/DanPudseyGithub/portfolio-site",
     },
-    clientsHeading: "Clients, past and present",
+    clientsHeading: "Clients, past and present.",
   },
   testimonials: {
     heading:

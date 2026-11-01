@@ -32,6 +32,7 @@
       "@icons*": ["./src/app/assets/icons/*"],
       "@logo*": ["./src/app/assets/logo/*"],
       "@images*": ["./src/app/assets/images/*"],
+      "@pdf*": ["./src/app/assets/pdf/*"],
       "@type*": ["./src/app/type/*"]
     }
   },
