@@ -10,12 +10,15 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  webpack(config) {
+  webpack(config, { isServer }) {
     config.module.rules.push({
-      test: /\.(mp4|webm)$/i,
+      test: /\.(mp4|webm|pdf)$/i,
       type: "asset/resource",
       generator: {
         filename: "static/media/[name].[hash][ext]",
+        // Server components emit from .next/server/chunks, so step back up to
+        // .next/static where the client assets (and the static export) live
+        outputPath: isServer ? "../../" : "",
       },
     });
 
