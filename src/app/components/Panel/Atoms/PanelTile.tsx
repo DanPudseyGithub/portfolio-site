@@ -4,6 +4,7 @@ import styleNames from "@utils/styleNames";
 import Icon from "@components/Icon/Icon";
 import InlineText from "@components/InlineText/InlineText";
 import { ContentLink, CurrentlyItem, Highlight, ProjectMedia } from "@type/ContentTypes";
+import Reveal from "@components/Reveal/Reveal";
 import PanelTileLink from "./PanelTileLink";
 import styles from "../Panel.module.scss";
 
@@ -17,7 +18,8 @@ export const PanelMediaTile = ({ media, alt }: PanelMediaTileProps) => {
   const isVideo = media.kind === "video";
   const aspectRatio = media.kind === "image" ? media.aspectRatio : undefined;
   return (
-    <article
+    <Reveal
+      as="article"
       className={styleNames(styles, [
         "PanelTile",
         isVideo ? "PanelTile--Video" : "PanelTile--Image",
@@ -51,7 +53,7 @@ export const PanelMediaTile = ({ media, alt }: PanelMediaTileProps) => {
           </div>
         )}
       </div>
-    </article>
+    </Reveal>
   );
 };
 
@@ -72,7 +74,10 @@ export const PanelCopyTile = ({
 }: PanelCopyTileProps) => {
   const hasDescription = body || highlights?.length;
   return (
-    <article className={styleNames(styles, ["PanelTile", "PanelTile--Light", "PanelTile--Copy"])}>
+    <Reveal
+      as="article"
+      className={styleNames(styles, ["PanelTile", "PanelTile--Light", "PanelTile--Copy"])}
+    >
       <div className={styles.PanelTileInner}>
         <p
           className={`${styleNames(styles, ["ProjectHeading", "ProjectHeading--Light"])} ${
@@ -140,6 +145,6 @@ export const PanelCopyTile = ({
           </div>
         )}
       </div>
-    </article>
+    </Reveal>
   );
 };

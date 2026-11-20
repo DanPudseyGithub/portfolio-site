@@ -46,6 +46,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Scroll reveals rely on JS, so without it show everything straight away */}
+        <noscript>
+          <style>{"[data-revealed]{clip-path:none!important}"}</style>
+        </noscript>
+      </head>
       <body>{children}</body>
     </html>
   );

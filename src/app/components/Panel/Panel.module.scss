@@ -69,6 +69,11 @@ $border-radius: 4px;
 // -----------------------------
 // Panel Text
 // -----------------------------
+
+.PanelWrapper {
+  display: block;
+}
+
 .Heading {
   @include text-theme-color;
   @include text-style-heading-1;

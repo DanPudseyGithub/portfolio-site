@@ -1,0 +1,30 @@
+@import "@variables/variables";
+
+// Expo-out: fast start, long soft settle
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+.Reveal {
+  // Right edge inset 100% = fully masked; animates to 0 = fully visible
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.4s $ease-out-expo;
+
+  // Snappier wipe on larger screens
+  @include media(">tablet") {
+    transition-duration: 0.9s;
+  }
+
+  &[data-revealed="true"] {
+    clip-path: inset(0 0 0 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    clip-path: none;
+    transition: none;
+  }
+}
+
+// Passes the parent's height through, so children using height: 100%
+// (like equal-height panel tiles) still fill their column
+.Observer {
+  height: 100%;
+}

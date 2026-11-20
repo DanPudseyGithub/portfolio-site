@@ -6,6 +6,7 @@ import { PanelBlock } from "@type/ContentTypes";
 import PanelText from "./Atoms/PanelText";
 import PanelSkill from "./Atoms/PanelSkill";
 import PanelRow from "./Atoms/PanelRow";
+import Reveal from "@components/Reveal/Reveal";
 import styles from "./Panel.module.scss";
 
 type PanelProps = Omit<PanelBlock, "type">;
@@ -33,7 +34,7 @@ const Panel = ({
     >
       <Row>
         <Column sm={12} md={12} lg={9}>
-          <div className={styles.PanelWrapper}>
+          <Reveal className={styles.PanelWrapper}>
             {heading && (
               <h2
                 className={`${styleNames(styles, [
@@ -91,7 +92,7 @@ const Panel = ({
                 )}
               </div>
             )}
-          </div>
+          </Reveal>
         </Column>
 
         <Column sm={12}>
